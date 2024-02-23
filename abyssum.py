@@ -1,3 +1,4 @@
+# Simple test program for the command line
 # pip install slack_sdk
 
 import logging
