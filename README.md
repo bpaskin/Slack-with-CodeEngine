@@ -72,7 +72,11 @@ ibmcloud plugin update <name>
 ```
 ibmcloud ce project create -n Abyssum
 ```
-3. Create the function and and upload it to IBM Cloud
+3. Go into the cloud functions directory
+```
+cd code-engine/function
+```
+4. Create the function and and upload it to IBM Cloud
 ```
 ibmcloud ce fn create  --name abyssumpy --build-source . -runtime python-3.11 -e SLACK_TOKEN=<Slack OAuth Token> -e CHANNEL_ID=<Slack Channel ID> 
 ```
