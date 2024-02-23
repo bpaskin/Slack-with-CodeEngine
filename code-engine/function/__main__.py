@@ -70,7 +70,7 @@ def main(params):
                      REACTION_COUNT = 0
                      if 'reactions' in REPLY:
                         REACTION_COUNT = count_reactions(REPLY['reactions'])
-                     MSG = "Idea - " + REPLY['text']
+                     MSG = REPLY['text']
                      ITEM = {"timestamp": REPLY['ts'], "date": DATE, "message": MSG, "reactions": REACTION_COUNT }
                   # These are the replies
                   else:
@@ -88,7 +88,7 @@ def main(params):
                if 'reactions' in MESSAGE:
                   REACTION_COUNT = count_reactions(MESSAGE['reactions'])
                DATE = convertDate(MESSAGE['ts'])
-               MSG =  "Idea - " + MESSAGE['text']
+               MSG =  MESSAGE['text']
                ITEM = {"timestamp": MESSAGE['ts'], "date": DATE, "message": MSG, "reactions": REACTION_COUNT}
                OUTPUT.append(ITEM)
 
