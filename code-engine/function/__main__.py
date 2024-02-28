@@ -94,9 +94,9 @@ def main(params):
       logger.info(OUTPUT)
       
       return {
-        "headers": { 'Content-Type': 'application/json; charset=utf-8' },
+        "headers": { 'Content-Type': 'text/html; charset=utf-8' },
         "statusCode": 200,
-        "body": str(OUTPUT) ,
+        "body": str(OUTPUT),
       }
    except SlackApiError as e:
       logger.error("Error creating conversation: {}".format(e))
