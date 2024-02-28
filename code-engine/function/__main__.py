@@ -103,5 +103,5 @@ def main(params):
       return {
         "headers": { 'Content-Type': 'text/html; charset=utf-8' },
         "statusCode": 500,
-        "body": "<html><body><h3>" + str(e) + "</h3></body></html>", 
+        "body": "<html><body><h3>Error: " + str(e) + "</h3></body></html>", 
       }
