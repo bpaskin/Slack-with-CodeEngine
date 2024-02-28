@@ -2,7 +2,6 @@
 
 import logging
 import os
-import json 
 import datetime
 
 from slack_sdk import WebClient
@@ -11,8 +10,8 @@ from slack_sdk.errors import SlackApiError
 def count_reactions(REACTIONS):
    REACTION_COUNT = 0
    for REACTION in REACTIONS:
-      REACTION_COUNT +=  REACTION['count'] 
-   return REACTION_COUNT 
+      REACTION_COUNT +=  REACTION['count']
+   return REACTION_COUNT
 
 def convertDate(TIMESTAMP):
    FL_TIMESTAMP = float(TIMESTAMP)
@@ -70,7 +69,7 @@ def main(params):
                      REACTION_COUNT = 0
                      if 'reactions' in REPLY:
                         REACTION_COUNT = count_reactions(REPLY['reactions'])
-                     MSG = REPLY['text']
+                     MSG = "Idea - " + REPLY['text']
                      ITEM = {"timestamp": REPLY['ts'], "date": DATE, "message": MSG, "reactions": REACTION_COUNT }
                   # These are the replies
                   else:
@@ -88,7 +87,7 @@ def main(params):
                if 'reactions' in MESSAGE:
                   REACTION_COUNT = count_reactions(MESSAGE['reactions'])
                DATE = convertDate(MESSAGE['ts'])
-               MSG =  MESSAGE['text']
+               MSG =  "Idea - " + MESSAGE['text']
                ITEM = {"timestamp": MESSAGE['ts'], "date": DATE, "message": MSG, "reactions": REACTION_COUNT}
                OUTPUT.append(ITEM)
 
