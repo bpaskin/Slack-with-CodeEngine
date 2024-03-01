@@ -3,6 +3,7 @@
 import logging
 import os
 import datetime
+import json
 
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
@@ -16,7 +17,7 @@ def count_reactions(REACTIONS):
 def convertDate(TIMESTAMP):
    FL_TIMESTAMP = float(TIMESTAMP)
    obj = datetime.datetime.fromtimestamp(FL_TIMESTAMP, datetime.timezone.utc)
-   return obj.strftime("%Y-%m-%d, %H:%M:%S %z")
+   return obj.strftime("%Y-%m-%d")
 
 def main(params):
 
@@ -96,7 +97,7 @@ def main(params):
       return {
         "headers": { 'Content-Type': 'application/json; charset=utf-8' },
         "statusCode": 200,
-        "body": str(OUTPUT),
+        "body": json.dumps(OUTPUT) ,
       }
    except SlackApiError as e:
       logger.error("Error creating conversation: {}".format(e))
