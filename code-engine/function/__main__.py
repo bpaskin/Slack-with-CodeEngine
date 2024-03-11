@@ -49,7 +49,7 @@ def main(params):
 
    try:
       oneYearAgo = datetime.datetime.now() - datetime.timedelta(365)
-      result = client.conversations_history(channel=CHANNEL_ID,oldest=oneYearAgo.timestamp())
+      result = client.conversations_history(channel=CHANNEL_ID,oldest=oneYearAgo.timestamp(),limit=1000)
       MESSAGES = result["messages"]
 
       # Loop through the messages and get only true messages and not joins, leaves, etc
